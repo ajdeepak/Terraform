@@ -14,6 +14,7 @@ module "compute" {
   private_subnet_ids    = module.network.private_subnet_ids
   aws_security_group_id = module.alb.alb_Security_group_id
   vpc_id                = var.vpc_id
+  alb_Security_group_id = module.alb.alb_Security_group_id
 
 }
 

@@ -1,5 +1,5 @@
 resource "aws_instance" "bastion_host" {
-  subnet_id                   = var.public_subnet[0].id
+  subnet_id                   = var.public_subnet_ids[0]
   ami                         = var.ami_id
   instance_type               = var.instance_type
   key_name                    = "Test_Keypair"
@@ -58,10 +58,10 @@ resource "aws_security_group" "private_sg" {
 
 
   ingress {
-     from_port       = 22
-    to_port         = 22
+     from_port       = 80
+    to_port         = 80
     protocol        = "tcp" 
-    security_groups = [var.aws_security_group_id]
+    security_groups = [var.alb_Security_group_id]
       }
 
   
