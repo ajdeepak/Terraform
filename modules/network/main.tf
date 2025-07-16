@@ -1,5 +1,7 @@
 resource "aws_vpc" "prodvpc" {
   cidr_block = var.vpccidr
+  enable_dns_support   = true
+  enable_dns_hostnames = true
   tags = {
     Name = "prodvpc"
   }
@@ -70,6 +72,7 @@ resource "aws_nat_gateway" "nat-gtw" {
   tags = {
     Name = "main-nat"
   }
+  depends_on = [aws_internet_gateway.igw]
 
 }
 
