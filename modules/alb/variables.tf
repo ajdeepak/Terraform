@@ -16,6 +16,6 @@ variable "target_instance_ids" {
 }
 
 variable "webapp_ids" {
-    type = lsit(string)
+    type = list(string)
   
 }
