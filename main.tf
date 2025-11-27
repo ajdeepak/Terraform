@@ -1,5 +1,5 @@
 module "network" {
-  source              = "C:/Users/deepakverma/Downloads/terrafrom/Project/modules/network"
+  source              = "./modules/network"
   vpccidr             = var.vpccidr
   azs                 = var.azs
   public_subnet_cidr  = var.public_subnet_cidr
@@ -7,7 +7,7 @@ module "network" {
 }
 
 module "compute" {
-  source                = "C:/Users/deepakverma/Downloads/terrafrom/Project/modules/compute"
+  source                = "./modules/compute"
   ami_id                = var.ami_id
   instance_type         = var.instance_type
   public_subnet_id      = module.network.public_subnet_ids[0]
@@ -19,7 +19,7 @@ module "compute" {
 }
 
 module "alb" {
-  source            = "C:/Users/deepakverma/Downloads/terrafrom/Project/modules/alb"
+  source            = "./modules/alb"
   vpc_id            = var.vpc_id
   public_subnet_ids = module.network.public_subnet_ids
   webapp_ids        = module.compute.webapp_ids
