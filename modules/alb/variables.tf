@@ -8,6 +8,10 @@ variable "public_subnet_ids" {
   type        = list(string)
 }
 
+variable "alb_security_group_id" {
+  description = "ALB security group ID to allow traffic from"
+  type        = string
+}
 
 
 variable "target_instance_ids" {
